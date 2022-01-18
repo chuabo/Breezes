@@ -1,6 +1,7 @@
-FROM registry.saintic.com/python
+#FROM registry.saintic.com/python
+from qzkc/python2.7:v2
 
-MAINTAINER Mr.tao <staugur@saintic.com>
+MAINTAINER chb <123141432@qq.com>
 
 ADD src /Breezes
 

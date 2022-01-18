@@ -1,0 +1,25 @@
+from chuabo/centos:7
+
+MAINTAINER Mr.tao <123141432@qq.com>
+
+ADD src /Breezes
+
+ADD misc/supervisord.conf /etc/supervisord.conf
+
+WORKDIR /Breezes
+
+run yum -y update
+
+run yum -y install wget gcc python-devel
+
+run wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+
+run python get-pip.py
+
+ADD requirements.txt /tmp
+
+RUN pip install --timeout 30 --index https://pypi.douban.com/simple/ -r /tmp/requirements.txt
+
+EXPOSE 10210
+
+ENTRYPOINT ["supervisord"]
